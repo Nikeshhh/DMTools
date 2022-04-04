@@ -1,7 +1,9 @@
 import pyodbc
+import psycopg2
 
+passw = '3228'
 
-class Connection:
+class AccessConnection:
 
     # Устанавливает соединение с базой данных Access
     def __init__(self, path, driver="Microsoft Access Driver (*.mdb, *.accdb)"):
@@ -25,10 +27,18 @@ class Connection:
             print(e)
 
 
+class PostgreConnection:
+
+    # Устанавливает соединение с PostgreSQL
+    def __init__(self, dbname, password, dbuser='postgres', host='localhost'):
+        self.connection = psycopg2.connect(dbname=dbname, user=dbuser, password=password, host=host)
+        self.cursor = self.connection.cursor()
+
 def main():
-    c = Connection(r"C:\Users\Nikesh\Documents\langs.accdb")
+    c = AccessConnection(r"C:\Users\Nikesh\Documents\langs.accdb")
     querry = "SELECT * FROM CLients"
     c.execSelectQuerry(querry)
+    cp = PostgreConnection('Prak1', passw)
 
 
 if __name__ == "__main__":
