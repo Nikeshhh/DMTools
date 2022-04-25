@@ -1,7 +1,6 @@
 import pyodbc
 import psycopg2
 from modules.FillingLib import Filler
-from random import *
 
 
 passw = '3228'
