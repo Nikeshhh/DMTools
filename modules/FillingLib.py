@@ -32,27 +32,27 @@ class Filler:
 
     # Возвращает случайное мужское имя
     def getMaleName(self):
-        return self.names[randint(0, len(self.names) - 1)]
+        return choice(self.names)
 
     # Возвращает случайную мужскую фамилию
     def getMaleFamily(self):
-        return self.families[randint(0, len(self.families) - 1)]
+        return choice(self.families)
 
     # Возвращает случайное мужское отчество
     def getMalePatronimy(self):
-        return self.otches[randint(0, len(self.otches) - 1)]
+        return choice(self.otches)
 
     # Возвращает случайное женское имя
     def getFemaleName(self):
-        return self.names_female[randint(0, len(self.names_female) - 1)]
+        return choice(self.names_female)
 
     # Возвращает случайную женскую фамилию
     def getFemaleFamily(self):
-        return self.families_female[randint(0, len(self.families_female) - 1)]
+        return choice(self.families_female)
 
     # Возвращает случайное женское отчество
     def getFemalePatronimy(self):
-        return self.otches_female[randint(0, len(self.otches_female) - 1)]
+        return choice(self.otches_female)
 
     # Возвращает случайные пасспортные данные вида 0#########
     def getPassportData(self):
@@ -64,16 +64,16 @@ class Filler:
 
     # Возвращает случайный адрес вида #Город#, #Улица#, #Номер дома#
     def getAddress(self):
-        return f"{self.cities[randint(0, len(self.cities) - 1)]}, {self.street[randint(0, len(self.street) - 1)]}, " \
+        return f"{choice(self.cities)}, {choice(self.street)}, " \
                f"{randint(1, 800)}"
 
     # Возвращает случайную бувку русского алфавита
     def getRusLetter(self):
-        return self.rus_alphabet[randint(0, len(self.rus_alphabet) - 1)]
+        return choice(self.rus_alphabet)
 
     # Возвращает случайную букву английского алфавита
     def getEngLetter(self):
-        return self.eng_alphabet[randint(0, len(self.eng_alphabet) - 1)]
+        return choice(self.eng_alphabet)
 
     # Возвращает случайный гос номер автомобиля без региона
     def getCarNumber(self):

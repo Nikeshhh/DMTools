@@ -1,7 +1,11 @@
 import pyodbc
 import psycopg2
+from modules.FillingLib import Filler
+from random import *
+
 
 passw = '3228'
+
 
 class AccessConnection:
 
@@ -33,6 +37,14 @@ class PostgreConnection:
     def __init__(self, dbname, password, dbuser='postgres', host='localhost'):
         self.connection = psycopg2.connect(dbname=dbname, user=dbuser, password=password, host=host)
         self.cursor = self.connection.cursor()
+
+    def execInsertQuerry(self, querrystr):
+        try:
+            self.cursor.execute(querrystr)
+            self.connection.commit()
+        except BaseException as e:
+            print(e)
+
 
 def main():
     c = AccessConnection(r"C:\Users\Nikesh\Documents\langs.accdb")
